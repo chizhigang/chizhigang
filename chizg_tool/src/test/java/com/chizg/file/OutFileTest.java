@@ -9,6 +9,56 @@ import java.util.List;
 
 public class OutFileTest {
 
+    private static String userIds = ""
+            +"159801,"
+            +"159806,"
+            +"159807,"
+            +"159808,"
+            +"159812,"
+            +"159813,"
+            +"159815,"
+            +"159816,"
+            +"159873,"
+            +"159881,"
+            +"159898,"
+            +"159903,"
+            +"159904,"
+            +"159911,"
+            +"159913,"
+            +"159914,"
+            +"159916,"
+            +"159918,"
+            +"159920,"
+            +"159921,"
+            +"159925,"
+            +"159928,"
+            +"159929,"
+            +"159952,"
+            +"159956,"
+            +"159963,"
+            +"159964,"
+            +"159965,"
+            +"159966,"
+            +"159975,"
+            +"159979,"
+            +"159980,"
+            +"159982,"
+            +"159983,"
+            +"159985,"
+            +"159986,"
+            +"159987,"
+            +"159990,"
+            +"159992,"
+            +"159993,"
+            +"159995,"
+            +"160001,"
+            +"160002,"
+            +"160003,"
+            +"160004,"
+            +"160005,"
+            +"160024,"
+            +"160025,"
+            +"160027";
     @Test
     public void toFile01() throws IOException  {
         String fileName = "sqlBack.sql" ;
@@ -49,5 +99,30 @@ public class OutFileTest {
         tables.add("yp_pool_eth_found_block");
         tables.add("yp_pool_pps_clear_batch_bak_20230823");
         OutFile.toFile(fileName,format,tables);
+    }
+
+    @Test
+    public void cearteSql(){
+
+        String sql = "SELECT user_id,FROM_UNIXTIME(`minute`) as '时间',share_accept as '算力',earn_double as '收益' FROM yp_pool_stat_user_minute_coin_fpps WHERE user_id=%s;";
+
+        String[] split = userIds.split(",");
+        for (String userId : split){
+            String format = String.format(sql, userId);
+            System.out.println(format);
+        }
+
+    }
+
+    @Test
+    public void cearteSql3(){
+
+        String sql = "='%s'!I4";
+        String[] split = userIds.split(",");
+        for (String userId : split){
+            String format = String.format(sql, userId);
+            System.out.println(format);
+        }
+
     }
 }
