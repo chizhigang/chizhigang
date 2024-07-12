@@ -4,9 +4,16 @@
   <groupId>org.example</groupId>
   <artifactId>chizg_tool</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Archetype - chizg_tool</name>
+  <name>chizg_tool</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+
+    <dependency>
+      <groupId>com.ypt.pool</groupId>
+      <artifactId>ypt-pool-common</artifactId>
+      <version>2.0.7</version>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -28,4 +35,17 @@
     </dependency>
 
   </dependencies>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>spider-snapshot</id>
+      <name>spider-snapshot</name>
+      <url>http://maven.spiderditital.vip/artifactory/spider-snapshot</url>
+    </snapshotRepository>
+    <repository>
+      <id>spider-release</id>
+      <name>spider-release</name>
+      <url>http://maven.spiderditital.vip/artifactory/spider-release</url>
+    </repository>
+  </distributionManagement>
 </project>
